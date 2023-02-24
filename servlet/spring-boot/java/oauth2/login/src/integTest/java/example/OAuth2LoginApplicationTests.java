@@ -107,20 +107,6 @@ public class OAuth2LoginApplicationTests {
 		this.webClient.getCookieManager().clearCookies();
 	}
 
-//	@Ignore // GK added some pages
-//	@Test
-//	void requestIndexPageWhenNotAuthenticatedThenDisplayLoginPage() throws Exception {
-//		HtmlPage page = this.webClient.getPage("/");
-//		this.assertLoginPage(page);
-//	}
-
-//	@Ignore // GK added some pages
-//	@Test
-//	void requestOtherPageWhenNotAuthenticatedThenDisplayLoginPage() throws Exception {
-//		HtmlPage page = this.webClient.getPage("/other-page");
-//		this.assertLoginPage(page);
-//	}
-
 	@Test
 	void requestAuthorizeGitHubClientWhenLinkClickedThenStatusRedirectForAuthorization() throws Exception {
 		HtmlPage page = this.webClient.getPage("/");
@@ -271,7 +257,8 @@ public class OAuth2LoginApplicationTests {
 		assertThat(page.getTitleText()).isEqualTo("Please sign in");
 
 		int expectedClients = 5;
-		int gkExpectedClients = expectedClients + 3; // It was 5 but we have Keycloak
+		// It was 5 but we have Keycloak
+		int gkExpectedClients = expectedClients + 3;
 
 		List<HtmlAnchor> clientAnchorElements = page.getAnchors();
 		assertThat(clientAnchorElements.size()).isEqualTo(gkExpectedClients);
