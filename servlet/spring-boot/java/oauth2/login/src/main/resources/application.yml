@@ -24,6 +24,15 @@ spring:
             redirect-uri: http://127.0.0.1:8080/login/oauth2/code/login-client
             scope: openid,profile
             client-name: Spring
+          azure:
+            provider: azure
+            client-id: 0685be9b-239e-408f-ace5-39d00c5c8605
+            client-secret: nZW8Q~dIDBGCkUbvWOlivAfWnpI6hzONH97UwcKx
+            redirect-uri: http://localhost:8080/login/oauth2/code/azure
+            scope:
+              - openid
+              - email
+              - profile
           google:
             client-id: your-app-client-id
             client-secret: your-app-client-secret
@@ -36,41 +45,41 @@ spring:
           okta:
             client-id: your-app-client-id
             client-secret: your-app-client-secret
-          keycloak:
-            provider: keycloak
-            client-id: login-app
-            scope: openid,profile
-            client-name: Keycloak v20 on localhost:8443
-            client-secret: hDhT8LQYef8ZZsGBMqajptdWLI6jtTLZ
-          keycloak-issuer-only:
-            provider: keycloak-issuer-only
-            client-id: login-app
-            scope: openid,profile
-            client-name: Keycloak v20 on localhost:8443 issuer only
-            client-secret: hDhT8LQYef8ZZsGBMqajptdWLI6jtTLZ
-          keycloak-http:
-            provider: keycloak-http
-            client-id: login-app
-            scope: openid,profile
-            client-name: Keycloak v20 on localhost:8095
-            client-secret: hDhT8LQYef8ZZsGBMqajptdWLI6jtTLZ
+#          keycloak:
+#            provider: keycloak
+#            client-id: login-app
+#            scope: openid,profile
+#            client-name: Keycloak v20 on localhost:8443
+#            client-secret: hDhT8LQYef8ZZsGBMqajptdWLI6jtTLZ
+#          keycloak-issuer-only:
+#            provider: keycloak-issuer-only
+#            client-id: login-app
+#            scope: openid,profile
+#            client-name: Keycloak v20 on localhost:8443 issuer only
+#            client-secret: hDhT8LQYef8ZZsGBMqajptdWLI6jtTLZ
+#          keycloak-http:
+#            provider: keycloak-http
+#            client-id: login-app
+#            scope: openid,profile
+#            client-name: Keycloak v20 on localhost:8095
+#            client-secret: hDhT8LQYef8ZZsGBMqajptdWLI6jtTLZ
         provider:
-          keycloak:
-            issuer-uri: https://localhost:8443/realms/springBoot
-            token-uri: https://localhost:8443/realms/springBoot/protocol/openid-connect/token
-            user-info-uri: https://localhost:8443/realms/springBoot/protocol/openid-connect/userinfo
-            user-name-attribute: preferred_username
-            scope: openid,profile
-          keycloak-issuer-only:
-            issuer-uri: https://localhost:8443/realms/springBoot
-            user-name-attribute: preferred_username
-            scope: openid,profile
-          keycloak-http:
-            issuer-uri: http://localhost:8095/realms/springBoot
-            token-uri: http://localhost:8095/realms/springBoot/protocol/openid-connect/token
-            user-info-uri: http://localhost:8095/realms/springBoot/protocol/openid-connect/userinfo
-            user-name-attribute: preferred_username
-            scope: openid,profile
+#          keycloak:
+#            issuer-uri: https://localhost:8443/realms/springBoot
+#            token-uri: https://localhost:8443/realms/springBoot/protocol/openid-connect/token
+#            user-info-uri: https://localhost:8443/realms/springBoot/protocol/openid-connect/userinfo
+#            user-name-attribute: preferred_username
+#            scope: openid,profile
+#          keycloak-issuer-only:
+#            issuer-uri: https://localhost:8443/realms/springBoot
+#            user-name-attribute: preferred_username
+#            scope: openid,profile
+#          keycloak-http:
+#            issuer-uri: http://localhost:8095/realms/springBoot
+#            token-uri: http://localhost:8095/realms/springBoot/protocol/openid-connect/token
+#            user-info-uri: http://localhost:8095/realms/springBoot/protocol/openid-connect/userinfo
+#            user-name-attribute: preferred_username
+#            scope: openid,profile
           spring:
             authorization-uri: http://localhost:9000/oauth2/authorize
             token-uri: http://localhost:9000/oauth2/token
@@ -80,3 +89,8 @@ spring:
             token-uri: https://your-subdomain.oktapreview.com/oauth2/v1/token
             user-info-uri: https://your-subdomain.oktapreview.com/oauth2/v1/userinfo
             jwk-set-uri: https://your-subdomain.oktapreview.com/oauth2/v1/keys
+          azure:
+            issuer-uri: https://login.microsoftonline.com/0d09fc44-e019-4be3-a4e4-b1a652e7b32f/v2.0
+            ## https://www.baeldung.com/spring-boot-azuerad-authenticate-users:
+            ##             issuer-uri: https://login.microsoftonline.com/your-tenant-id-comes-here/v2.0
+            #
